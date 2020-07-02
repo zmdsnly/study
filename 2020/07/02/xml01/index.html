@@ -12,10 +12,10 @@
     <meta name="keywords" content="Fechin,"> 
     <meta name="description" content="XML
 1、概念：Extensible Markup Language  可扩展标记语言
-​    *可扩展：标签都是自定义的。 
-​    *功能
-​        *存储数据
-​        ,"> 
+​    *可扩展：标签都是自定义的。
+1&amp;lt;user&amp;gt; &amp;lt;student&amp;gt;
+
+​  ,"> 
     <meta name="author" content="ly"> 
     <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -67,7 +67,9 @@
         <div class="content markdown">
             <p>XML</p>
 <p>1、概念：Extensible Markup Language  可扩展标记语言</p>
-<p>​    *可扩展：标签都是自定义的。<user> <student></student></user></p>
+<p>​    *可扩展：标签都是自定义的。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;user&gt; &lt;student&gt;</span><br></pre></td></tr></table></figure>
+
 <p>​    *功能</p>
 <p>​        *存储数据</p>
 <p>​            1、配置文件</p>
@@ -130,9 +132,14 @@
 
 <p>​    </p>
 <p>​    *约束 ：规定xml文档的书写规则</p>
-<p>​                    *作为框架的使用者（程序员）：</p>
+<p>​                    * 作为框架的使用者（程序员）：</p>
 <p>​                        1、能够在xml中引入约束文档</p>
 <p>​                        2、能够简单的读懂约束文档</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">*分类：</span><br><span class="line"></span><br><span class="line">		1、DTD：一种简单的约束技术</span><br><span class="line"></span><br><span class="line">		2、Schema：一种复杂的约束技术</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">		*DTD:</span><br><span class="line"></span><br><span class="line">		*引入dtd文档到xml文档中</span><br><span class="line">			*内部dtd：将约束规则定义在xml文档中</span><br><span class="line">			*外部dtd：将约束的规则定义在外部的dtd文件中</span><br><span class="line">			</span><br><span class="line">    *本地：&lt;!DOCTYPE 根标签名 SYSTEM &quot;dtd文件的位置&quot;&gt;</span><br><span class="line">	*网络：&lt;!DOCTYPE 根标签名 PUBLIC &quot;dtd文件的名字&quot; &quot;dtd文件的位置&quot;&gt;      </span><br><span class="line">    </span><br><span class="line">    </span><br><span class="line">    *Schema：</span><br><span class="line">    	*引入</span><br><span class="line">            1.填写xml文档的根元素</span><br><span class="line">            2.引入xsi前缀.  xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">            3.引入xsd文件命名空间.  xsi:schemaLocation=&quot;http://www.itcast.cn/xml  student.xsd&quot;</span><br><span class="line">            4.为每一个xsd约束声明一个前缀,作为标识  xmlns=&quot;http://www.itcast.cn/xml&quot; </span><br><span class="line">		</span><br><span class="line">		&lt;students   xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot;</span><br><span class="line">			xmlns=&quot;http://www.itcast.cn/xml&quot;</span><br><span class="line">			xsi:schemaLocation=&quot;http://www.itcast.cn/xml  student.xsd&quot;&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​                    </p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">3、解析：操作xml文档，将文档中的数据读取到内存中</span><br><span class="line">	*操作xml文档</span><br><span class="line">		1.解析（读取）：将文档中的数据读取到内存中</span><br><span class="line">		2.写入：将内存中的数据保存到xml文档中，持久化的存储</span><br><span class="line">		</span><br><span class="line">	</span><br><span class="line">	*解析xml的方式：</span><br><span class="line">		1.DOM：将标记语言文档一次性加载进内存，在内存中形成一颗demo树</span><br><span class="line">			*优点：操作方便，可以对文档进行CRUD 的所有操作（增删改查）</span><br><span class="line">			*缺点：占内存</span><br><span class="line">		2.SAX：逐行读取，基于时间驱动的。（读一行释放一行）</span><br><span class="line">			*优点：不占内存</span><br><span class="line">			*缺点：只能读取，不能增删改</span><br><span class="line">	</span><br><span class="line">	*xml 常见的解析器：</span><br><span class="line">	1、 JAXP:sun公司提供的解析器，支持dom和sax两种思想</span><br><span class="line">	2、 DOM4J：一款非常优秀的解析器</span><br><span class="line">	3、 Jsoup：jsoup 是一款Java 的HTML解析器，可直接解析某个URL地址、HTML文本内容。它提供了一套非常省力的API，可通过DOM，CSS以及类似于jQuery的操作方法来取出和操作数据。</span><br></pre></td></tr></table></figure>
+
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
