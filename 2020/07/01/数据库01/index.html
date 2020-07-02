@@ -5,12 +5,16 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>归档: 2019</title>
+    <title>数据库01 - 追梦的少年ly</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="1、数据库服务器:运行数据库管理软件的计算机
+2、数据库管理软件：mysql , oracle , db2 , slqserver
+3、库：文件夹
+4、表: 文件
+5、记录：事物一系列典型的特征  ,"> 
     <meta name="author" content="ly"> 
     <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -30,32 +34,101 @@
 <body class="loading">
     <span id="config-title" style="display:none">追梦的少年ly</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                    <div class="timeline">
-                      <h2 class="timeline-title">归档: 5篇</h2>
-                      
-                        
-                          <h3 class="timeline-subtitle">2019</h3>
-                        
-                        <div class="timeline-item">
-                          <time>2019-08-18</time>
-                          <a target="_self" href="/2019/08/18/My-New-Post/">My New Post</a>
-                        </div>
-                      
-                    </div>
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">数据库01</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">数据库01</h1>
+        <div class="stuff">
+            <span>七月 01, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <p>1、数据库服务器:运行数据库管理软件的计算机</p>
+<p>2、数据库管理软件：mysql , oracle , db2 , slqserver</p>
+<p>3、库：文件夹</p>
+<p>4、表: 文件</p>
+<p>5、记录：事物一系列典型的特征  ： egon,male,18,oldgirl</p>
+<p>6、数据：描述事物特征的符号</p>
+<p>mysql -uroot -p123 -h 127.0.0.1 -P 3306</p>
+<p>操作文件夹 （库） </p>
+<p>增:     create database db1 charset utf8;</p>
+<p>查:    show create database db1;</p>
+<p>​        show databases;</p>
+<p>改:    alter database db1 charset gbk;</p>
+<p>删:    drop database db1;</p>
+<p>操作文件（表）</p>
+<p>切换文件夹:    use db1;</p>
+<p>查看当前所在文件夹:     select database();</p>
+<p>增:     create table t1(id int,name char);</p>
+<p>查：  show create table t1;  </p>
+<p>​         show tables;</p>
+<p>​         desc t1;</p>
+<p>改:    alter table t1 modify name char(6);</p>
+<p>​         alter table t1 change name NAME char(7);</p>
+<p>删： drop table t1;</p>
+<p>操作文件内容（记录）</p>
+<p>增:   insert t1(id,name) values(1,’ly1’),(2,’ly2’),(3,’ly3’);</p>
+<p>查:   select id,name from db1.t1;</p>
+<p>​        select * from db1.t1;</p>
+<p>改:  update db1.t1 set name=’SB’;</p>
+<p>​      update db1.t1 set name=’ALEX’ where id=2;</p>
+<p>删: delete from t1;</p>
+<p>​     delete from t1 where id=2;</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://ip.h5.nf01.sycdn.kuwo.cn/b7272e712fb8516ffa626ae555232a44/5ecf8c59/resource/n2/25/34/1253173263.mp3'></li>
+                    
+                        <li title='1' data-url='http://sv.sycdn.kuwo.cn/b9b7ef9184693cc690ecfbfcbaec9b70/5ecf8c9b/resource/n1/15/98/2762992032.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
