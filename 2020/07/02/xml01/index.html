@@ -5,17 +5,17 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>数据库02 - 追梦的少年ly</title>
+    <title>xml01 - 追梦的少年ly</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    <meta name="description" content="数据库存储引擎
-1、什么是数据引擎？
-存储引擎就是表的类型
-2、查看MySQL支持的存储引擎
-show engines;
-"> 
+    <meta name="description" content="XML
+1、概念：Extensible Markup Language  可扩展标记语言
+​    *可扩展：标签都是自定义的。 
+​    *功能
+​        *存储数据
+​        ,"> 
     <meta name="author" content="ly"> 
     <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -40,7 +40,7 @@ show engines;
     <div class="bar" style="width: 0;"></div>
     <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
     <div title="播放/暂停" class="icon-play"></div>
-    <h3 class="subtitle">数据库02</h3>
+    <h3 class="subtitle">xml01</h3>
     <div class="social">
         <!--<div class="like-icon">-->
             <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
@@ -58,18 +58,78 @@ show engines;
     <div class="section">
         <div class="article">
     <div class='main'>
-        <h1 class="title">数据库02</h1>
+        <h1 class="title">xml01</h1>
         <div class="stuff">
             <span>七月 02, 2020</span>
             
 
         </div>
         <div class="content markdown">
-            <p>数据库存储引擎</p>
-<p>1、什么是数据引擎？</p>
-<p>存储引擎就是表的类型</p>
-<p>2、查看MySQL支持的存储引擎</p>
-<p>show engines;</p>
+            <p>XML</p>
+<p>1、概念：Extensible Markup Language  可扩展标记语言</p>
+<p>​    *可扩展：标签都是自定义的。<user> <student></student></user></p>
+<p>​    *功能</p>
+<p>​        *存储数据</p>
+<p>​            1、配置文件</p>
+<p>​            2、在网络中传输</p>
+<p>​    *xml与html的区别</p>
+<p>​            1、xml标签是自定义的，html标签是预定义的</p>
+<p>​            2、xml的语法严格，html语法松散</p>
+<p>​            3、xml是存储数据的，html是展示数据的</p>
+<p>​    properties</p>
+<p>​    name=zhangsan</p>
+<p>​    age=23</p>
+<p>​    gender=nan</p>
+<p>​    name=lisi</p>
+<p>​    age=24</p>
+<p>​    gender=nv</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">&lt;user id=&apos;1&apos;&gt;</span><br><span class="line"></span><br><span class="line">​		&lt;name&gt;zhangsan&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">​		&lt;age&gt;23&lt;/age&gt;</span><br><span class="line"></span><br><span class="line">​	&lt;/user&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">​	&lt;user id=&apos;2&apos;&gt;</span><br><span class="line"></span><br><span class="line">​		&lt;name&gt;lisi&lt;/name&gt;</span><br><span class="line"></span><br><span class="line">​		&lt;age&gt;24&lt;/age&gt;</span><br><span class="line"></span><br><span class="line">​	&lt;/user&gt;</span><br></pre></td></tr></table></figure>
+
+<p>​    *w3c：万维网联盟</p>
+<p>2、语法</p>
+<p>​    *基本语法：</p>
+<p>​                1、xml文档的后缀名  .xml</p>
+<p>​                2、xml第一行必须定义为文档声明</p>
+<p>​                3、xml文档中有且仅有一个根标签</p>
+<p>​                4、属性值必须使用引号（单双都可）引起来</p>
+<p>​                5、标签必须正确关闭</p>
+<p>​                6、xml 的标签区分大小写</p>
+<p>​    *快速入门：</p>
+<pre><code>&lt;?xml version=&apos;1.0&apos; ?&gt;
+&lt;users&gt;
+    &lt;user id=&apos;1&apos;&gt;
+        &lt;name&gt;zhangsan&lt;/name&gt;
+        &lt;age&gt;23&lt;/age&gt;
+        &lt;gender&gt;male&lt;/gender&gt;
+        &lt;br/&gt;
+    &lt;/user&gt;
+    &lt;user id=&apos;2&apos;&gt;
+        &lt;name&gt;lisi&lt;/name&gt;
+        &lt;age&gt;24&lt;/age&gt;
+        &lt;gender&gt;female&lt;/gender&gt;
+    &lt;/user&gt;
+&lt;/users&gt;</code></pre><p>​    *组成部分：</p>
+<p>​                    1、文档声明</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> 			 1.格式	&lt;?xml 属性列表 ?&gt;</span><br><span class="line">​			 2.属性列表：</span><br><span class="line">                *version：版本号，必须的属性</span><br><span class="line">                *encoding：编码方式。告知解析引擎当前文档使用的字符集，默认：ISO-8859-1</span><br><span class="line">                *standalone:是否独立 </span><br><span class="line">                *取值：</span><br><span class="line">                	*yes:不依赖其他文件</span><br><span class="line">                	*no:依赖其他文件</span><br></pre></td></tr></table></figure>
+
+<p>​                    2、指令（了解）：结合css的</p>
+<p>​                        *<?xml-stylesheet type="text/css" href="a.css"?></p>
+<p>​                    3、标签：标签名称自定义的</p>
+<p>​                        *规则：</p>
+<p>​                            1.元素的名字可以包含字母、数字、和其他字符</p>
+<p>​                            2.元素的名字不能以xml(XML、Xml、xML等)开头</p>
+<p>​                            3.元素的名字不能以数字或者标点符号开头</p>
+<p>​                            4.元素的名字不能包含空格</p>
+<p>​                    4、属性：</p>
+<p>​                            id属性值唯一</p>
+<p>​                    5、文本：</p>
+<p>​                            *CDATA区：在该区域中的数据会被原样展示</p>
+<p>​                                    *格式：<!--[CDATA[数据]]--></p>
+<p>​    </p>
+<p>​    *约束 ：规定xml文档的书写规则</p>
+<p>​                    *作为框架的使用者（程序员）：</p>
+<p>​                        1、能够在xml中引入约束文档</p>
+<p>​                        2、能够简单的读懂约束文档</p>
 
             <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
             <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
