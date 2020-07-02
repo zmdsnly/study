@@ -113,7 +113,8 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"> 			 1.格式	&lt;?xml 属性列表 ?&gt;</span><br><span class="line">​			 2.属性列表：</span><br><span class="line">                *version：版本号，必须的属性</span><br><span class="line">                *encoding：编码方式。告知解析引擎当前文档使用的字符集，默认：ISO-8859-1</span><br><span class="line">                *standalone:是否独立 </span><br><span class="line">                *取值：</span><br><span class="line">                	*yes:不依赖其他文件</span><br><span class="line">                	*no:依赖其他文件</span><br></pre></td></tr></table></figure>
 
 <p>​                    2、指令（了解）：结合css的</p>
-<p>​                        *<?xml-stylesheet type="text/css" href="a.css"?></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">*&lt;?xml-stylesheet type=&quot;text/css&quot; href=&quot;a.css&quot;?&gt;</span><br></pre></td></tr></table></figure>
+
 <p>​                    3、标签：标签名称自定义的</p>
 <p>​                        *规则：</p>
 <p>​                            1.元素的名字可以包含字母、数字、和其他字符</p>
@@ -124,7 +125,9 @@
 <p>​                            id属性值唯一</p>
 <p>​                    5、文本：</p>
 <p>​                            *CDATA区：在该区域中的数据会被原样展示</p>
-<p>​                                    *格式：<!--[CDATA[数据]]--></p>
+<p>​                                    *格式：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;![CDATA[数据]]&gt;</span><br></pre></td></tr></table></figure>
+
 <p>​    </p>
 <p>​    *约束 ：规定xml文档的书写规则</p>
 <p>​                    *作为框架的使用者（程序员）：</p>
