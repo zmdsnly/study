@@ -1,0 +1,160 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>爬虫12 - 追梦的少年ly</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="正则 解析1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515,"> 
+    <meta name="author" content="ly"> 
+    <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">追梦的少年ly</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">爬虫12</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">爬虫12</h1>
+        <div class="stuff">
+            <span>七月 15, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="正则-解析"><a href="#正则-解析" class="headerlink" title="正则 解析"></a>正则 解析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br></pre></td><td class="code"><pre><span class="line">import requests</span><br><span class="line">from fake_useragent import UserAgent</span><br><span class="line">from random import randint</span><br><span class="line">from time import sleep</span><br><span class="line">import re</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def get_html(url):</span><br><span class="line">    headers = &#123;</span><br><span class="line">        &quot;User-Agent&quot;: UserAgent().chrome</span><br><span class="line">    &#125;</span><br><span class="line">    sleep(randint(3, 5))</span><br><span class="line">    response = requests.get(url, headers=headers)</span><br><span class="line">    response.encoding = &apos;utf-8&apos;</span><br><span class="line">    if response.status_code == 200:</span><br><span class="line">        return response.text</span><br><span class="line">    else:</span><br><span class="line">        return None</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def parse_index(html):</span><br><span class="line">    all_url = re.findall(r&apos; &lt;a href=&quot;(/films/\d+)&quot; target=&quot;_blank&quot; data-act=&quot;movies-click&quot; data-val=&quot;&#123;movieId:\d+&#125;&quot;&gt;&apos;,</span><br><span class="line">                         html)</span><br><span class="line">    return [&apos;http://maoyan.com&#123;&#125;&apos;.format(url) for url in all_url]</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def parse_info(html):</span><br><span class="line">    name = re.findall(r&apos;&lt;h3 class=&quot;name&quot;&gt;(.+)&lt;/h3&gt;&apos;, html)[0]</span><br><span class="line">    types = re.findall(r&apos;&lt;li class=&quot;ellipsis&quot;&gt;(.+)&lt;/li&gt;&apos;, html)[0]</span><br><span class="line">    actors = re.findall(</span><br><span class="line">        r&apos;&lt;li class=&quot;celebrity actor&quot;.+&gt;\s+&lt;a href=&quot;/films/cel.+&gt;\s+&lt;img.+&gt;\s+&lt;/a&gt;\s+&lt;div.+&gt;\s+&lt;a.+&gt;\s+(.+)\s+&lt;/a&gt;&apos;,</span><br><span class="line">        html)</span><br><span class="line">    actors = format_actors(actors)</span><br><span class="line">    return &#123;</span><br><span class="line">        &quot;name&quot;: name,</span><br><span class="line">        &quot;types&quot;: types,</span><br><span class="line">        &quot;actors&quot;: actors</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def format_actors(actors):</span><br><span class="line">    actor_set = set()</span><br><span class="line">    for actor in actors:</span><br><span class="line">        actor_set.add(actor)</span><br><span class="line">    return actor_set</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">def main():</span><br><span class="line">    index_url = &apos;http://maoyan.com/films&apos;</span><br><span class="line">    html = get_html(index_url)</span><br><span class="line">    movie_urls = parse_index(html)</span><br><span class="line">    for url in movie_urls:</span><br><span class="line">        movie_html = get_html(url)</span><br><span class="line">        movie = parse_info(movie_html)</span><br><span class="line">        print(movie)</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    main()</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://ip.h5.nf01.sycdn.kuwo.cn/b7272e712fb8516ffa626ae555232a44/5ecf8c59/resource/n2/25/34/1253173263.mp3'></li>
+                    
+                        <li title='1' data-url='http://sv.sycdn.kuwo.cn/b9b7ef9184693cc690ecfbfcbaec9b70/5ecf8c9b/resource/n1/15/98/2762992032.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
