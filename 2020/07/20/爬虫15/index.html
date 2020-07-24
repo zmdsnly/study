@@ -1,0 +1,168 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>爬虫15 - 追梦的少年ly</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="Scrapy123456789#命令行#创建：  scrapy genspider baidu baidu.com#执行：  scrapy crawl baidu#数据保存（解析）：scrapy c,"> 
+    <meta name="author" content="ly"> 
+    <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">追梦的少年ly</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">爬虫15</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">爬虫15</h1>
+        <div class="stuff">
+            <span>七月 20, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="Scrapy"><a href="#Scrapy" class="headerlink" title="Scrapy"></a>Scrapy</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">#命令行</span><br><span class="line">#创建：  scrapy genspider baidu baidu.com</span><br><span class="line">#执行：  scrapy crawl baidu</span><br><span class="line">#数据保存（解析）：</span><br><span class="line">scrapy crawl qidian -o book.json</span><br><span class="line">scrapy crawl qidian -o book.xml</span><br><span class="line">scrapy crawl qidian -o book.csv</span><br><span class="line"></span><br><span class="line">#创建新的项目: scrapy startproject xiaoshuo</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#zww.py</span><br><span class="line"></span><br><span class="line">import scrapy</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class ZwwSpider(scrapy.Spider):</span><br><span class="line">    name = &apos;zww&apos;</span><br><span class="line">    allowed_domains = [&apos;81zw.us&apos;]</span><br><span class="line">    start_urls = [&apos;https://www.81zw.us/book/606/37631071.html&apos;]</span><br><span class="line"></span><br><span class="line">    def parse(self, response):</span><br><span class="line">        title=response.xpath(&apos;//h1/text()&apos;).extract_first()</span><br><span class="line">        content=&apos;&apos;.join(response.xpath(&apos;//div[@id=&quot;content&quot;]/text()&apos;).extract()).replace(&apos;    &apos;,&apos;\n&apos;)</span><br><span class="line"></span><br><span class="line">        yield &#123;</span><br><span class="line">            &apos;title&apos;:title,</span><br><span class="line">            &apos;content&apos;:content</span><br><span class="line">        &#125;</span><br><span class="line">        next_url=response.xpath(&apos;//div[@class=&quot;bottem2&quot;]/a[4]/@href&apos;).extract_first()</span><br><span class="line">        #base_url=&apos;https://www.81zw.us&#123;&#125;&apos;.format(next_url)</span><br><span class="line">        if next_url.find(&apos;.html&apos;)!=-1:</span><br><span class="line">            yield scrapy.Request(response.urljoin(next_url),callback=self.parse)</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br></pre></td><td class="code"><pre><span class="line">#setting配置</span><br><span class="line"></span><br><span class="line"># Scrapy settings for xiaoshuo project</span><br><span class="line">#</span><br><span class="line"># For simplicity, this file contains only settings considered important or</span><br><span class="line"># commonly used. You can find more settings consulting the documentation:</span><br><span class="line">#</span><br><span class="line">#     https://docs.scrapy.org/en/latest/topics/settings.html</span><br><span class="line">#     https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span><br><span class="line">#     https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span><br><span class="line"></span><br><span class="line">BOT_NAME = &apos;xiaoshuo&apos;</span><br><span class="line"></span><br><span class="line">SPIDER_MODULES = [&apos;xiaoshuo.spiders&apos;]</span><br><span class="line">NEWSPIDER_MODULE = &apos;xiaoshuo.spiders&apos;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># Crawl responsibly by identifying yourself (and your website) on the user-agent</span><br><span class="line">USER_AGENT = &apos;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.87 Safari/537.36&apos;</span><br><span class="line"></span><br><span class="line"># Obey robots.txt rules</span><br><span class="line">ROBOTSTXT_OBEY = False</span><br><span class="line"></span><br><span class="line"># Configure maximum concurrent requests performed by Scrapy (default: 16)</span><br><span class="line">#CONCURRENT_REQUESTS = 32</span><br><span class="line"></span><br><span class="line"># Configure a delay for requests for the same website (default: 0)</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/settings.html#download-delay</span><br><span class="line"># See also autothrottle settings and docs</span><br><span class="line">DOWNLOAD_DELAY = 2</span><br><span class="line"># The download delay setting will honor only one of:</span><br><span class="line">#CONCURRENT_REQUESTS_PER_DOMAIN = 16</span><br><span class="line">#CONCURRENT_REQUESTS_PER_IP = 16</span><br><span class="line"></span><br><span class="line"># Disable cookies (enabled by default)</span><br><span class="line">#COOKIES_ENABLED = False</span><br><span class="line"></span><br><span class="line"># Disable Telnet Console (enabled by default)</span><br><span class="line">#TELNETCONSOLE_ENABLED = False</span><br><span class="line"></span><br><span class="line"># Override the default request headers:</span><br><span class="line">#DEFAULT_REQUEST_HEADERS = &#123;</span><br><span class="line">#   &apos;Accept&apos;: &apos;text/html,application/xhtml+xml,application/xml;q=0.9,*/*;q=0.8&apos;,</span><br><span class="line">#   &apos;Accept-Language&apos;: &apos;en&apos;,</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line"># Enable or disable spider middlewares</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/spider-middleware.html</span><br><span class="line">#SPIDER_MIDDLEWARES = &#123;</span><br><span class="line">#    &apos;xiaoshuo.middlewares.XiaoshuoSpiderMiddleware&apos;: 543,</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line"># Enable or disable downloader middlewares</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html</span><br><span class="line">#DOWNLOADER_MIDDLEWARES = &#123;</span><br><span class="line">#    &apos;xiaoshuo.middlewares.XiaoshuoDownloaderMiddleware&apos;: 543,</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line"># Enable or disable extensions</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/extensions.html</span><br><span class="line">#EXTENSIONS = &#123;</span><br><span class="line">#    &apos;scrapy.extensions.telnet.TelnetConsole&apos;: None,</span><br><span class="line">#&#125;</span><br><span class="line"></span><br><span class="line"># Configure item pipelines</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><span class="line">ITEM_PIPELINES = &#123;</span><br><span class="line">   &apos;xiaoshuo.pipelines.XiaoshuoPipeline&apos;: 300,</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"># Enable and configure the AutoThrottle extension (disabled by default)</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/autothrottle.html</span><br><span class="line">#AUTOTHROTTLE_ENABLED = True</span><br><span class="line"># The initial download delay</span><br><span class="line">#AUTOTHROTTLE_START_DELAY = 5</span><br><span class="line"># The maximum download delay to be set in case of high latencies</span><br><span class="line">#AUTOTHROTTLE_MAX_DELAY = 60</span><br><span class="line"># The average number of requests Scrapy should be sending in parallel to</span><br><span class="line"># each remote server</span><br><span class="line">#AUTOTHROTTLE_TARGET_CONCURRENCY = 1.0</span><br><span class="line"># Enable showing throttling stats for every response received:</span><br><span class="line">#AUTOTHROTTLE_DEBUG = False</span><br><span class="line"></span><br><span class="line"># Enable and configure HTTP caching (disabled by default)</span><br><span class="line"># See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html#httpcache-middleware-settings</span><br><span class="line">#HTTPCACHE_ENABLED = True</span><br><span class="line">#HTTPCACHE_EXPIRATION_SECS = 0</span><br><span class="line">#HTTPCACHE_DIR = &apos;httpcache&apos;</span><br><span class="line">#HTTPCACHE_IGNORE_HTTP_CODES = []</span><br><span class="line">#HTTPCACHE_STORAGE = &apos;scrapy.extensions.httpcache.FilesystemCacheStorage&apos;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">#pipelines  #打开文件 写入 保存（关闭）</span><br><span class="line"></span><br><span class="line"># Define your item pipelines here</span><br><span class="line">#</span><br><span class="line"># Don&apos;t forget to add your pipeline to the ITEM_PIPELINES setting</span><br><span class="line"># See: https://docs.scrapy.org/en/latest/topics/item-pipeline.html</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"># useful for handling different item types with a single interface</span><br><span class="line">from itemadapter import ItemAdapter</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">class XiaoshuoPipeline:</span><br><span class="line">    def open_spider(self,spider):</span><br><span class="line">        self.file=open(&apos;wddf.txt&apos;,&apos;w&apos;,encoding=&apos;utf-8&apos;)</span><br><span class="line">    def process_item(self, item, spider):</span><br><span class="line">        title=item[&apos;title&apos;]</span><br><span class="line">        content=item[&apos;content&apos;]</span><br><span class="line">        #info=title+&apos;\n&apos;+content+&apos;\n&apos;</span><br><span class="line">        info=title+&apos;\n&apos;</span><br><span class="line">        self.file.write(info)</span><br><span class="line">        self.file.flush()</span><br><span class="line">        return item</span><br><span class="line">    def close_spider(self,spider):</span><br><span class="line">        self.file.close()</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">#main.py 执行</span><br><span class="line"></span><br><span class="line">from scrapy.cmdline import execute</span><br><span class="line">execute([&apos;scrapy&apos;,&apos;crawl&apos;,&apos;zww&apos;])</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://ip.h5.nf01.sycdn.kuwo.cn/b7272e712fb8516ffa626ae555232a44/5ecf8c59/resource/n2/25/34/1253173263.mp3'></li>
+                    
+                        <li title='1' data-url='http://sv.sycdn.kuwo.cn/b9b7ef9184693cc690ecfbfcbaec9b70/5ecf8c9b/resource/n1/15/98/2762992032.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
