@@ -1,0 +1,177 @@
+
+<!DOCTYPE html>
+<html lang="zh-CN" class="loading">
+<head><meta name="generator" content="Hexo 3.9.0">
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>爬虫13-selenium的使用和爬取虎牙 - 追梦的少年ly</title>
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="google" content="notranslate">
+    <meta name="keywords" content="Fechin,"> 
+    <meta name="description" content="selenium的使用1234567891011121314151617181920212223#python自动化点击百度from selenium import webdriverdef chr,"> 
+    <meta name="author" content="ly"> 
+    <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
+    <link rel="icon" href="/img/favicon.png"> 
+    <link rel="stylesheet" href="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+    <link rel="stylesheet" href="/css/diaspora.css">
+    <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+    <script>
+         (adsbygoogle = window.adsbygoogle || []).push({
+              google_ad_client: "ca-pub-8691406134231910",
+              enable_page_level_ads: true
+         });
+    </script>
+    <script async custom-element="amp-auto-ads" src="https://cdn.ampproject.org/v0/amp-auto-ads-0.1.js">
+    </script>
+</head>
+</html>
+<body class="loading">
+    <span id="config-title" style="display:none">追梦的少年ly</span>
+    <div id="loader"></div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">爬虫13-selenium的使用和爬取虎牙</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
+            </div>
+            <div id="qr"></div>
+        </div>
+    </div>
+    <div class="scrollbar"></div>
+</div>
+
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">爬虫13-selenium的使用和爬取虎牙</h1>
+        <div class="stuff">
+            <span>七月 18, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="selenium的使用"><a href="#selenium的使用" class="headerlink" title="selenium的使用"></a>selenium的使用</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">#python自动化点击百度</span><br><span class="line">from selenium import webdriver</span><br><span class="line"></span><br><span class="line">def chrome_text():</span><br><span class="line">    chrome = webdriver.Chrome()</span><br><span class="line"></span><br><span class="line">    chrome.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line"></span><br><span class="line">    chrome.find_element_by_id(&quot;kw&quot;).send_keys(&quot;python&quot;)</span><br><span class="line"></span><br><span class="line">    chrome.find_element_by_id(&quot;su&quot;).click()</span><br><span class="line"></span><br><span class="line">#无头浏览器</span><br><span class="line">def chrome_headless():</span><br><span class="line">    options=webdriver.ChromeOptions()</span><br><span class="line">    options.add_argument(&quot;--headless&quot;)</span><br><span class="line">    chrome=webdriver.Chrome(chrome_options=options)</span><br><span class="line">    chrome.get(&quot;http://www.baidu.com&quot;)</span><br><span class="line">    html=chrome.page_source</span><br><span class="line">    print(html)</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line">    chrome_headless()</span><br></pre></td></tr></table></figure>
+
+<h1 id="爬取虎牙直播里的主播和他的观看人数"><a href="#爬取虎牙直播里的主播和他的观看人数" class="headerlink" title="爬取虎牙直播里的主播和他的观看人数"></a>爬取虎牙直播里的主播和他的观看人数</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">from selenium import webdriver</span><br><span class="line">from time import sleep</span><br><span class="line">driver=webdriver.Chrome()</span><br><span class="line">url=&quot;https://www.huya.com/g/lol&quot;</span><br><span class="line">driver.get(url)</span><br><span class="line">num=1</span><br><span class="line">while True:</span><br><span class="line">    print(&apos;第&apos;+str(num)+&apos;页---------------------------------&apos;)</span><br><span class="line">    num+=1</span><br><span class="line">    sleep(5)</span><br><span class="line">    html=driver.page_source</span><br><span class="line">    names=driver.find_elements_by_xpath(&apos;//i[@class=&quot;nick&quot;]&apos;)</span><br><span class="line">    counts=driver.find_elements_by_xpath(&apos;//i[@class=&quot;js-num&quot;]&apos;)</span><br><span class="line">    for name,count in zip(names,counts):</span><br><span class="line">        print(name.text,&quot;:&quot;,count.text)</span><br><span class="line">    if driver.page_source.find(&apos;laypage_next&apos;)!=-1:</span><br><span class="line">        driver.find_element_by_xpath(&apos;//a[@class=&quot;laypage_next&quot;]&apos;).click()</span><br><span class="line">    else:</span><br><span class="line">        break</span><br></pre></td></tr></table></figure>
+
+<h1 id="滚动条"><a href="#滚动条" class="headerlink" title="滚动条"></a>滚动条</h1><h4 id="Selenium-处理滚动条"><a href="#Selenium-处理滚动条" class="headerlink" title="Selenium 处理滚动条"></a>Selenium 处理滚动条</h4><blockquote>
+<p>selenium并不是万能的，有时候页面上操作无法实现的，这时候就需要借助JS来完成了</p>
+</blockquote>
+<p>　　当页面上的元素超过一屏后，想操作屏幕下方的元素，是不能直接定位到，会报元素不可见的。这时候需要借助滚动条来拖动屏幕，使被操作的元素显示在当前的屏幕上。滚动条是无法直接用定位工具来定位的。selenium里面也没有直接的方法去控制滚动条，这时候只能借助J了，还好selenium提供了一个操作js的方法:execute_script()，可以直接执行js的脚本</p>
+<h5 id="一-控制滚动条高度"><a href="#一-控制滚动条高度" class="headerlink" title="一. 控制滚动条高度"></a>一. 控制滚动条高度</h5><h6 id="1-1滚动条回到顶部："><a href="#1-1滚动条回到顶部：" class="headerlink" title="1.1滚动条回到顶部："></a>1.1滚动条回到顶部：</h6><pre><code>js=&quot;var q=document.getElementById(&apos;id&apos;).scrollTop=0&quot;
+driver.execute_script(js)</code></pre><h6 id="1-2滚动条拉到底部"><a href="#1-2滚动条拉到底部" class="headerlink" title="1.2滚动条拉到底部"></a>1.2滚动条拉到底部</h6><pre><code>js=&quot;var q=document.documentElement.scrollTop=10000&quot;
+driver.execute_script(js)</code></pre><p>可以修改scrollTop 的值，来定位右侧滚动条的位置，0是最上面，10000是最底部</p>
+<p>以上方法在Firefox和IE浏览器上上是可以的，但是用Chrome浏览器，发现不管用。Chrome浏览器解决办法：</p>
+<pre><code>js = &quot;var q=document.body.scrollTop=0&quot;
+driver.execute_script(js)</code></pre><h5 id="二-横向滚动条"><a href="#二-横向滚动条" class="headerlink" title="二.横向滚动条"></a>二.横向滚动条</h5><h6 id="2-1-有时候浏览器页面需要左右滚动（一般屏幕最大化后，左右滚动的情况已经很少见了"><a href="#2-1-有时候浏览器页面需要左右滚动（一般屏幕最大化后，左右滚动的情况已经很少见了" class="headerlink" title="2.1 有时候浏览器页面需要左右滚动（一般屏幕最大化后，左右滚动的情况已经很少见了)"></a>2.1 有时候浏览器页面需要左右滚动（一般屏幕最大化后，左右滚动的情况已经很少见了)</h6><h6 id="2-2-通过左边控制横向和纵向滚动条scrollTo-x-y"><a href="#2-2-通过左边控制横向和纵向滚动条scrollTo-x-y" class="headerlink" title="2.2 通过左边控制横向和纵向滚动条scrollTo(x, y)"></a>2.2 通过左边控制横向和纵向滚动条scrollTo(x, y)</h6><pre><code>js = &quot;window.scrollTo(100,400)&quot;
+driver.execute_script(js)</code></pre><h5 id="三-元素聚焦"><a href="#三-元素聚焦" class="headerlink" title="三.元素聚焦"></a>三.元素聚焦</h5><p>虽然用上面的方法可以解决拖动滚动条的位置问题，但是有时候无法确定我需要操作的元素在什么位置，有可能每次打开的页面不一样，元素所在的位置也不一样，怎么办呢？这个时候我们可以先让页面直接跳到元素出现的位置，然后就可以操作了</p>
+<p>同样需要借助JS去实现。 具体如下：</p>
+<pre><code>target = driver.find_element_by_xxxx()
+driver.execute_script(&quot;arguments[0].scrollIntoView();&quot;, target)</code></pre><h5 id="四-参考代码"><a href="#四-参考代码" class="headerlink" title="四. 参考代码"></a>四. 参考代码</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">#爬取京东商品及价格</span><br><span class="line">from selenium import webdriver</span><br><span class="line">from lxml import etree</span><br><span class="line">from time import sleep</span><br><span class="line"></span><br><span class="line">url=&quot;https://list.jd.com/list.html?cat=737,794,798&quot;</span><br><span class="line"></span><br><span class="line">chrome=webdriver.Chrome()</span><br><span class="line">chrome.get(url)</span><br><span class="line">chrome.maximize_window()</span><br><span class="line"></span><br><span class="line">js=&quot;document.documentElement.scrollTop=10000&quot;</span><br><span class="line">chrome.execute_script(js)</span><br><span class="line">sleep(5)</span><br><span class="line">html=chrome.page_source</span><br><span class="line">e=etree.HTML(html)</span><br><span class="line">prices=e.xpath(&apos;//div[@class=&quot;gl-i-wrap&quot;]/div[@class=&quot;p-price&quot;]/strong/i/text()&apos;)</span><br><span class="line">names=e.xpath(&apos;//div[@class=&quot;gl-i-wrap&quot;]/div[@class=&quot;p-name p-name-type-3&quot;]/a/em&apos;)</span><br><span class="line">print(len(names))</span><br><span class="line">for name,price in zip(names,prices):</span><br><span class="line">    print(name.xpath(&apos;string(.)&apos;),&quot;:&quot;,price)</span><br></pre></td></tr></table></figure>
+
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://ip.h5.nf01.sycdn.kuwo.cn/b7272e712fb8516ffa626ae555232a44/5ecf8c59/resource/n2/25/34/1253173263.mp3'></li>
+                    
+                        <li title='1' data-url='http://sv.sycdn.kuwo.cn/b9b7ef9184693cc690ecfbfcbaec9b70/5ecf8c9b/resource/n1/15/98/2762992032.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
+</body>
+<script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
+<script src="/js/plugin.js"></script>
+<script src="/js/diaspora.js"></script>
+<link rel="stylesheet" href="/photoswipe/photoswipe.css">
+<link rel="stylesheet" href="/photoswipe/default-skin/default-skin.css">
+<script src="/photoswipe/photoswipe.min.js"></script>
+<script src="/photoswipe/photoswipe-ui-default.min.js"></script>
+
+<!-- Root element of PhotoSwipe. Must have class pswp. -->
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+    <!-- Background of PhotoSwipe. 
+         It's a separate element as animating opacity is faster than rgba(). -->
+    <div class="pswp__bg"></div>
+    <!-- Slides wrapper with overflow:hidden. -->
+    <div class="pswp__scroll-wrap">
+        <!-- Container that holds slides. 
+            PhotoSwipe keeps only 3 of them in the DOM to save memory.
+            Don't modify these 3 pswp__item elements, data is added later on. -->
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+        <!-- Default (PhotoSwipeUI_Default) interface on top of sliding area. Can be changed. -->
+        <div class="pswp__ui pswp__ui--hidden">
+            <div class="pswp__top-bar">
+                <!--  Controls are self-explanatory. Order can be changed. -->
+                <div class="pswp__counter"></div>
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+                <!-- Preloader demo http://codepen.io/dimsemenov/pen/yyBWoR -->
+                <!-- element will get class pswp__preloader--active when preloader is running -->
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                      <div class="pswp__preloader__cut">
+                        <div class="pswp__preloader__donut"></div>
+                      </div>
+                    </div>
+                </div>
+            </div>
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div> 
+            </div>
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+</html>
