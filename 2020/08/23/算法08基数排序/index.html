@@ -5,12 +5,12 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>归档: 2020/7</title>
+    <title>算法08基数排序 - 追梦的少年ly</title>
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="google" content="notranslate">
     <meta name="keywords" content="Fechin,"> 
-    
+    <meta name="description" content="基数排序基数排序  O(kn)12345678910111213141516171819202122#空间复杂度 O(k+n)def radix_sort(li):    max_num=max(l,"> 
     <meta name="author" content="ly"> 
     <link rel="alternative" href="atom.xml" title="追梦的少年ly" type="application/atom+xml"> 
     <link rel="icon" href="/img/favicon.png"> 
@@ -30,44 +30,73 @@
 <body class="loading">
     <span id="config-title" style="display:none">追梦的少年ly</span>
     <div id="loader"></div>
-    <div id="single" class="page">
-    <div id="top">
-        <a class="icon-left image-icon" href="javascript:history.back()"></a>
-    </div>
-    <div class="section">
-        <div class="article">
-            <div class="main">
-                <div class="content">
-                    <div class="timeline">
-                      <h2 class="timeline-title">归档: 40篇</h2>
-                      
-                        
-                          <h3 class="timeline-subtitle">2020</h3>
-                        
-                        <div class="timeline-item">
-                          <time>2020-07-02</time>
-                          <a target="_self" href="/2020/07/02/xml/">xml</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2020-07-02</time>
-                          <a target="_self" href="/2020/07/02/数据库02/">数据库02</a>
-                        </div>
-                      
-                        
-                        <div class="timeline-item">
-                          <time>2020-07-01</time>
-                          <a target="_self" href="/2020/07/01/数据库01/">数据库01</a>
-                        </div>
-                      
-                    </div>
-                </div>
+    <div id="single">
+    <div id="top" style="display: block;">
+    <div class="bar" style="width: 0;"></div>
+    <a class="icon-home image-icon" href="javascript:;" data-url="http://yoursite.com"></a>
+    <div title="播放/暂停" class="icon-play"></div>
+    <h3 class="subtitle">算法08基数排序</h3>
+    <div class="social">
+        <!--<div class="like-icon">-->
+            <!--<a href="javascript:;" class="likeThis active"><span class="icon-like"></span><span class="count">76</span></a>-->
+        <!--</div>-->
+        <div>
+            <div class="share">
+                <a title="获取二维码" class="icon-scan" href="javascript:;"></a>
             </div>
+            <div id="qr"></div>
         </div>
     </div>
+    <div class="scrollbar"></div>
 </div>
 
+    <div class="section">
+        <div class="article">
+    <div class='main'>
+        <h1 class="title">算法08基数排序</h1>
+        <div class="stuff">
+            <span>八月 23, 2020</span>
+            
+
+        </div>
+        <div class="content markdown">
+            <h1 id="基数排序"><a href="#基数排序" class="headerlink" title="基数排序"></a>基数排序</h1><h4 id="基数排序-O-kn"><a href="#基数排序-O-kn" class="headerlink" title="基数排序  O(kn)"></a>基数排序  O(kn)</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">#空间复杂度 O(k+n)</span><br><span class="line">def radix_sort(li):</span><br><span class="line">    max_num=max(li) #最大值 9-&gt;1,99-&gt;2,888-&gt;3,10000-&gt;5</span><br><span class="line">    it=0</span><br><span class="line">    while 10**it &lt;= max_num:</span><br><span class="line">        buckets=[[] for _ in range(10)]</span><br><span class="line">        for var in li:</span><br><span class="line">            digit=(var // 10 ** it)%10</span><br><span class="line">            buckets[digit].append(var)</span><br><span class="line">        #分桶完成</span><br><span class="line">        li.clear()</span><br><span class="line">        for buc in buckets:</span><br><span class="line">            li.extend(buc)</span><br><span class="line">        #把数重新写回li</span><br><span class="line"></span><br><span class="line">        it+=1</span><br><span class="line"></span><br><span class="line">import random</span><br><span class="line">li=list(range(10000))</span><br><span class="line">random.shuffle(li)</span><br><span class="line">radix_sort(li)</span><br><span class="line">print(li)</span><br></pre></td></tr></table></figure>
+
+<p>O（n）都是线性排序</p>
+
+            <!--[if lt IE 9]><script>document.createElement('audio');</script><![endif]-->
+            <audio id="audio" loop="1" preload="auto" controls="controls" data-autoplay="false">
+                <source type="audio/mpeg" src="">
+            </audio>
+            
+                <ul id="audio-list" style="display:none">
+                    
+                        <li title='0' data-url='http://ip.h5.nf01.sycdn.kuwo.cn/b7272e712fb8516ffa626ae555232a44/5ecf8c59/resource/n2/25/34/1253173263.mp3'></li>
+                    
+                        <li title='1' data-url='http://sv.sycdn.kuwo.cn/b9b7ef9184693cc690ecfbfcbaec9b70/5ecf8c9b/resource/n1/15/98/2762992032.mp3'></li>
+                    
+                </ul>
+            
+        </div>
+        
+    <div id='gitalk-container' class="comment link"
+        data-ae='false'
+        data-ci=''
+        data-cs=''
+        data-r=''
+        data-o=''
+        data-a=''
+        data-d='false'
+    >查看评论</div>
+
+
+    </div>
+    
+</div>
+
+
+    </div>
+</div>
 </body>
 <script src="//cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
 <script src="//lib.baomitu.com/jquery/1.8.3/jquery.min.js"></script>
